@@ -953,3 +953,20 @@ footer{
   transform: translateX(10px);
   transition: transform 0.1s ease-in;
 }
+@media(max-width:480px)
+{
+  .txt{
+    padding: none;
+    margin: none;
+    width: 300px;
+    left:0;
+    justify-content: left;
+    overflow: hidden;
+  }
+  #ar{
+    left:10%;
+    margin-top: -9%;
+    width: 5vw;
+    height: 40%;
+  }
+}
