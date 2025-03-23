@@ -270,3 +270,40 @@ const slides = document.querySelectorAll('.carousel-slide');
 
   document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1, "next"));
   document.getElementById('prevBtn').addEventListener('click', () => showSlide(currentSlide - 1, "prev"));
+  document.addEventListener('DOMContentLoaded', function () {
+    const parallaxElements1 = document.querySelectorAll('.con'); 
+    const parallaxElements2 = document.querySelectorAll('.carousel-wrapper'); 
+
+    function applyParallax() {
+        let scrollY = window.scrollY;
+
+        parallaxElements1.forEach(element => {
+            if (element.dataset.visible === "true") {
+                let offset = (scrollY - element.dataset.start) * 0.4;
+                element.style.transform = `translateY(${offset}px)`;
+            }
+        });
+
+        parallaxElements2.forEach(element => {
+            if (element.dataset.visible === "true") {
+                let offset = (scrollY - element.dataset.start) * 0.12; 
+                element.style.transform = `translateY(${offset}px)`;
+            }
+        });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.dataset.visible = "true";
+                entry.target.dataset.start = window.scrollY;
+            } else {
+                entry.target.dataset.visible = "false";
+            }
+        });
+    }, { threshold: 0.1 });
+
+    [...parallaxElements1, ...parallaxElements2].forEach(element => observer.observe(element));
+
+    window.addEventListener('scroll', applyParallax);
+});

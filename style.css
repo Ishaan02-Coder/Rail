@@ -1,4 +1,4 @@
-/* Reset some default browser styles */
+
 *{
   font-family: Arial, Helvetica, sans-serif
 }
@@ -9,7 +9,6 @@ body, h1, h2, h3, p, ul {
     list-style: none;
 }
 
-/* Base styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -21,7 +20,7 @@ body {
     margin: 0 auto;
 }
 
-/* Header styles */
+
 header {
     background: #333;
     color: #fff;
@@ -30,7 +29,6 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: background 0.3s;
 }
 
 
@@ -39,7 +37,7 @@ header {
     color: #fff;
     text-align: center;
     padding: 5rem 0;
-    margin-top: 80px; /* To offset fixed header */
+    margin-top: 80px;
     opacity: 0;
     transform: translateY(-20px);
     animation: fadeInUp 1s forwards;
@@ -51,14 +49,13 @@ header {
     padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s;
 }
 
 .banner .btn:hover {
     background: #e5533d;
 }
 
-/* Vision section styles */
+
 .vision {
     text-align: center;
     padding: 3rem 0;
@@ -68,19 +65,16 @@ header {
 }
 
 .vision .btn {
-    background: #333;
     color: #fff;
     padding: 0.5rem 1rem;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s;
 }
 
 .vision .btn:hover {
     background: #555;
 }
 
-/* Events section styles */
 .events {
     background: transparent;
     padding: 3rem 0;
@@ -91,7 +85,6 @@ header {
 
 
 
-/* Footer styles */
 footer {
     background: #333;
     color: #fff;
@@ -99,8 +92,6 @@ footer {
     padding: 1rem 0;
     margin-top: 2rem;
 }
-
-/* Animations */
 @keyframes fadeInUp {
     to {
         opacity: 1;
@@ -108,17 +99,16 @@ footer {
     }
 }
 nav ul {
-    display: flex; /* Enables Flexbox */
-    flex-direction: row; /* Aligns items horizontally */
-    list-style: none; /* Removes bullet points */
-    padding: 0; /* Removes default padding */
-    margin: 0; /* Removes default margin */
+    display: flex; 
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0; 
     justify-content: space-between;
     align-items: center;
     width: 34.68vw;
     height: 55px;
-    gap: 20px; /* Optional: Adds space between items */
-}
+    gap: 20px;}
 
 .contain ul {
     display: grid;
@@ -137,21 +127,21 @@ nav ul {
 .contain h2 {
     left:0;
     transform: rotate(-90deg); 
-    transform-origin: 10% -5%; /* 10% from the left and 20% from the top */
+    transform-origin: 10% -5%;
 
-    transition: transform 5s /* Rotate about the center of the element */
+    transition: transform 5s 
 }
 
 .contain img {
-    transition: transform 0.2s ease-in-out; /* Add transition property */
+    transition: transform 0.2s ease-in-out; 
 }
 
 .contain img:hover {
-    transform: translateY(-20px); /* Only the transform property */
+    transform: translateY(-20px); 
 }
 .banner #image1{
     position: relative; 
-    transform: rotate(60deg); /* Start at -120 degrees */
+    transform: rotate(60deg); 
     transform-origin: 0px 0px; 
     animation: rotateToZero 1s ease-in-out forwards;
 }
@@ -162,20 +152,20 @@ left:0;
 }
 @keyframes rotateToZero {
     to {
-        transform: rotate(0deg); /* End at 0 degrees */
+        transform: rotate(0deg);
     }
 }
 .grid-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 20px; /* Space between items */
+    gap: 20px; 
     padding: 20px;
   }
   
   .media-container {
     position: relative;
     width: 100%;
-    height: 300px; /* Adjust size */
+    height: 300px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -220,9 +210,9 @@ nav ul li img:hover{
     background-color: rgb(4,199,92);
 }
 .logo-container {
-    width: 50px; /* Adjust size as needed */
+    width: 50px;
     height: 55px;
-    background-image: url('images/logo1.png'); /* Ensure the image has transparency */
+    background-image: url('images/logo1.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -333,8 +323,8 @@ header div{
   border-width: 1px;
   box-shadow: none;
   box-sizing: border-box;
-  outline: none; /* Make sure there is no outline */
-  border-style: solid; /* Ensure border style is defined */
+  outline: none; 
+  border-style: solid; 
 }
 
 .Donate:hover{
@@ -385,32 +375,32 @@ header div{
 .entra{
   height: 100vh;
 }
-/* Ensure the preview image matches the size of the video */
+
 #preview5 {
   width: 100%;
   
   height: 100%; 
   border-radius: 2%;
-  height: 100%; /* Make it the same size as the video */
-  background-size: cover; /* Cover the entire div area with the image */
-  background-position: center; /* Center the image */
-  transition: opacity 0.3s ease; /* Smooth transition for hiding/showing the image */
-  opacity: 1; /* Initially visible */
-  position: absolute; /* Position it over the video */
+  height: 100%; 
+  background-size: cover;
+  background-position: center; 
+  transition: opacity 0.3s ease; 
+  opacity: 1;
+  position: absolute; 
   top: 0;
   left: 0;
-  z-index: 1; /* Make sure the image is on top of the video */
+  z-index: 1; 
 }
 
 .hover-video {
   width: 100%;
-  height: 100%; /* Match the size of the preview image */
+  height: 100%; 
   display: block;
-  background-color: #000; /* For fallback in case video doesn't load */
-  position: absolute; /* Position it over the image */
+  background-color: #000; 
+  position: absolute; 
   top: 0;
   left: 0;
-  z-index: 0; /* Keep the video under the preview image */
+  z-index: 0; 
 }
 #hoverVideo5{
   width: 100%;
@@ -444,7 +434,7 @@ header div{
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Class to be added when the element is visible */
+
 .show {
   opacity: 1;
   transform: translateX(0);
@@ -455,7 +445,7 @@ header div{
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Class to be added when the element is visible */
+
 .show1 {
   opacity: 1;
   transform: translateX(0);
@@ -493,7 +483,7 @@ display: flex;
   height: auto;
   object-fit: cover;
   opacity: 0;
-  display: none; /* Ensures it fully disappears */
+  display: none;  
   transition: opacity 0.3s ease-out;
   pointer-events: none;
   transform: translate(-50%, -50%);
@@ -554,7 +544,6 @@ z-index: -1;
   white-space: nowrap;
 }
 
-/* Initially hidden */
 .hover-box {
   transform: translateX(0);
   opacity: 0;
@@ -564,13 +553,13 @@ z-index: -1;
     top:170vh;
     left:56.5%;
 }
-/* Ensure the container fills the parent div */
+
 #preview6 {
   position: absolute;
   top: 0;
   right: 0;
   width: 100%;
-  height: 100%; /* Ensures it fills its parent */
+  height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -578,14 +567,13 @@ z-index: -1;
   
 }
 
-/* Ensure video is fully covering */
 #hoverVideo6 {
   position: absolute;
   top: 0;
   right: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures full coverage */
+  object-fit: cover; 
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
 }
@@ -602,22 +590,20 @@ body {
 }
 
 .footer {
-  margin-top: auto; /* Pushes footer to the bottom */
+  margin-top: auto;
 }
-/* Make sure body takes up full height */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-/**
-/* Ensure .events section is visible */
+
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  transition: transform 0.5s ease-in-out; /* Smooth transition */
+  transition: transform 0.5s ease-in-out; 
   background: rgba(255, 250, 250, 0.919)
 }
 .d-container{
@@ -631,7 +617,7 @@ header {
 
 
 [id^="pics"], [id^="via"] {
-  transition: transform 0.1s linear; /* Smooth movement */
+  transition: transform 0.1s linear; 
   will-change: transform;
 }
 .pics{
@@ -713,7 +699,7 @@ body {
   color: white;
   font-size: 30px;
   margin: 20px 0;
-  opacity: 0; /* Initially hide menu items */
+  opacity: 0; 
   transform: translateY(50px);
   transition: opacity 0.3s ease, transform 0.5s ease;
 }
@@ -762,8 +748,8 @@ body {
   color: white;
   font-size: 30px;
   margin: 20px 0;
-  opacity: 0; /* Initially hide menu items */
-  transform: translateY(50px); /* Initially position items off-screen */
+  opacity: 0; 
+  transform: translateY(50px); 
   transition: opacity 0.3s ease, transform 0.5s ease;
 }
 .overlay.active{
@@ -772,10 +758,9 @@ body {
   gap:30px;
 }
 .logo-container1 {
-  width: 70px; /* Adjust size as needed */
+  width: 70px;
   height: 78px;
-  background-image: url('images/im.png'); /* Ensure the image has transparency */
-  background-size: contain;
+  background-image: url('images/im.png');
   background-repeat: no-repeat;
   background-position: center;
   transition: filter 0.3s;
@@ -789,14 +774,14 @@ nav ul li a{
 }
 .carousel-wrapper {
   width: 100%;
-  max-width: 1300px; /* Match Rail Park's layout */
+  max-width: 1300px;
   margin: 0 auto;
   overflow: hidden;
 }
 
 .carousel-container {
   display: flex;
-  width: 200%; /* Two slides side by side */
+  width: 200%; 
   transition: transform 0.5s ease-in-out;
 }
 
@@ -810,17 +795,16 @@ nav ul li a{
 
 
 .carousel-slide img {
-  max-width: 100%; /* Ensure full width within container */
+  max-width: 100%;
   height: auto;
-  max-height: 80vh; /* Maintain aspect ratio like Rail Park */
+  max-height: 80vh; 
   object-fit: cover;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-/* Responsive behavior */
 @media (max-width: 1300px) {
   .carousel-slide img {
-      max-width: 90vw; /* Adjust for smaller screens */
+      max-width: 90vw; 
   }
 }
 @media(min-width:965px){
@@ -939,4 +923,13 @@ color:#06ca5e;
 }
 .noble{
   height:70vh;
+}
+.coin-video
+{
+position: relative;
+}
+.rotating-text
+{
+  top:-160px;
+position: relative;
 }
