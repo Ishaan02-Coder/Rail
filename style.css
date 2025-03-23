@@ -8,7 +8,9 @@ body, h1, h2, h3, p, ul {
     padding: 0;
     list-style: none;
 }
-
+html,body{
+  overflow-x: hidden;
+}
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
