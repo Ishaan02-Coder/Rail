@@ -305,9 +305,6 @@ nav ul li img:hover{
    }
    
 }
-.grid-container{
-  height:300vh;
-}
 header div{
   display: flex;
   flex-direction: row;
@@ -612,7 +609,7 @@ header {
 #via1{
   position:relative;
   left:35%;
-  top:-80%;
+  top:-00%;
 }
 
 
@@ -645,6 +642,7 @@ html,body{
   border-radius: 1%;
 }
 #pics3{
+  margin-top: 10%;
   padding-top: 30%;
 }
 .ham {
@@ -761,6 +759,7 @@ body {
   width: 70px;
   height: 78px;
   background-image: url('images/im.png');
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   transition: filter 0.3s;
@@ -932,4 +931,23 @@ position: relative;
 {
   top:-160px;
 position: relative;
+}
+.events{
+  padding-top: 150vh;
+}
+.txt{
+  margin-top: 5%;
+}
+footer{
+  background-color: black;
+}
+.visit h1:hover{
+  color: green;
+  transform: translateX(10px);
+  transition: transform 0.1s ease-in;
+}
+.visionss:hover{
+  color: green;
+  transform: translateX(10px);
+  transition: transform 0.1s ease-in;
 }

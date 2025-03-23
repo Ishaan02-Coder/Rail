@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         parallaxElements2.forEach(element => {
             if (element.dataset.visible === "true") {
-                let offset = (scrollY - element.dataset.start) * 0.12; 
+                let offset = (scrollY - element.dataset.start) * 0.2; 
                 element.style.transform = `translateY(${offset}px)`;
             }
         });
