@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const hoverBox = document.getElementById("hover-wheel" + id);
 
         if (!svg || !hoverBox) {
-            console.error("Element not found: wheel" + id + " or hover-wheel" + id);
+            console.log("Element not found: wheel" + id + " or hover-wheel" + id);
             return;
         }
 
@@ -182,24 +182,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     addHoverEffect(1);
+    addHoverEffect(2);
 });
 document.addEventListener('DOMContentLoaded', function () {
     const parallaxElements1 = document.querySelectorAll('[id^="pics"]'); 
-    const parallaxElements2 = document.querySelectorAll('[id^="via"]'); 
+    const parallaxElements2 = document.querySelectorAll('[id^="via"], .the, .txt,.text,.visit');
 
     function applyParallax() {
         let scrollY = window.scrollY;
 
-        parallaxElements1.forEach(element => {
-            if (element.dataset.visible === "true") {
-                let offset = (scrollY - element.dataset.start) * 0.1;
-                element.style.transform = `translateY(${offset}px)`;
-            }
-        });
+        // parallaxElements1.forEach(element => {
+        //     if (element.dataset.visible === "true") {
+        //         let offset = (scrollY - element.dataset.start) * 0.1;
+        //         element.style.transform = `translateY(${offset}px)`;
+        //     }
+        // });
 
         parallaxElements2.forEach(element => {
             if (element.dataset.visible === "true") {
-                let offset = (scrollY - element.dataset.start) * 0.2; 
+                let offset = (scrollY - element.dataset.start) * 0.05; 
                 element.style.transform = `translateY(${offset}px)`;
             }
         });
@@ -279,17 +280,17 @@ const slides = document.querySelectorAll('.carousel-slide');
 
         parallaxElements1.forEach(element => {
             if (element.dataset.visible === "true") {
-                let offset = (scrollY - element.dataset.start) * 0.4;
+                let offset = (scrollY - element.dataset.start) * 0.08;
                 element.style.transform = `translateY(${offset}px)`;
             }
         });
 
-        parallaxElements2.forEach(element => {
-            if (element.dataset.visible === "true") {
-                let offset = (scrollY - element.dataset.start) * 0.12; 
-                element.style.transform = `translateY(${offset}px)`;
-            }
-        });
+         parallaxElements2.forEach(element => {
+             if (element.dataset.visible === "true") {
+                 let offset = (scrollY - element.dataset.start) * 0.1; 
+                 element.style.transform = `translateY(${offset}px)`;
+             }
+         });
     }
 
     const observer = new IntersectionObserver((entries) => {
@@ -307,3 +308,93 @@ const slides = document.querySelectorAll('.carousel-slide');
 
     window.addEventListener('scroll', applyParallax);
 });
+function updateSVGPath() {
+    const prevSvgElement = document.getElementById('svg1');
+    const nextSvgElement = document.querySelector('#nextBtn svg');
+    
+    const prevPathElement = prevSvgElement.querySelector('path');
+    const nextPathElement = nextSvgElement.querySelector('path');
+    
+    const viewportWidth = window.innerWidth;
+  
+    if (viewportWidth <= 480) {
+      
+      prevPathElement.setAttribute('d', 'M51.8697 5.99991L47.63 1.33625L48.37 0.663574L53.37 6.16357L53.6757 6.49991L53.37 6.83625L48.37 12.3362L47.63 11.6636L51.8697 6.99991H40V5.99991H51.8697Z');
+      
+     
+      nextPathElement.setAttribute('d', 'M51.8697 5.99991L47.63 1.33625L48.37 0.663574L53.37 6.16357L53.6757 6.49991L53.37 6.83625L48.37 12.3362L47.63 11.6636L51.8697 6.99991H40V5.99991H51.8697Z');
+  
+    } else {
+      
+      prevPathElement.setAttribute('d', 'M51.8697 5.99991L47.63 1.33625L48.37 0.663574L53.37 6.16357L53.6757 6.49991L53.37 6.83625L48.37 12.3362L47.63 11.6636L51.8697 6.99991H-1.14441e-05V5.99991H51.8697Z');
+      
+      nextPathElement.setAttribute('d', 'M51.8697 5.99991L47.63 1.33625L48.37 0.663574L53.37 6.16357L53.6757 6.49991L53.37 6.83625L48.37 12.3362L47.63 11.6636L51.8697 6.99991H-1.14441e-05V5.99991H51.8697Z');
+    }
+  }
+  
+  updateSVGPath();
+  
+
+document.getElementById('email-input').addEventListener('input', function () {
+    const emailValue = this.value.trim();
+    const submitButton = document.getElementById('bt');
+    
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  
+    if (emailPattern.test(emailValue)) {
+      submitButton.disabled = false; 
+    } else {
+      submitButton.disabled = true; 
+    }
+  });
+  
+
+  document.getElementById('subscribe-form').addEventListener('submit', function (event) {
+    event.preventDefault(); 
+  
+    const emailInput = document.getElementById('email-input');
+    const responseMessage = document.getElementById('response-message');
+    const emailValue = emailInput.value.trim();
+    const newsSection = document.querySelector('.news');
+  
+
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  
+    if (emailPattern.test(emailValue)) {
+
+      responseMessage.textContent = 'Thank you for subscribing!';
+      responseMessage.classList.remove('error');
+      responseMessage.classList.add('success');
+  
+      newsSection.classList.add('hidden-elements');
+  
+      emailInput.value = '';
+      emailInput.disabled = true;
+      document.getElementById('bt').disabled = true;
+    } else {
+      responseMessage.textContent = 'The email you entered is not valid. Please try again.';
+      responseMessage.classList.remove('success');
+      responseMessage.classList.add('error');
+  
+      newsSection.classList.remove('hidden-elements');
+    }
+  });
+
+  window.onload = function() {
+    var elements = document.querySelectorAll('.con, .ph, .plan');
+
+    elements.forEach(function(element) {
+      var currentTop = parseInt(window.getComputedStyle(element).top, 10);
+      element.style.top = (currentTop + 50) + 'px'; 
+    });
+
+    setTimeout(function() {
+      elements.forEach(function(element) {
+        element.style.opacity = '1'; 
+        var finalTop = parseInt(window.getComputedStyle(element).top, 10) - 50;
+        element.style.top = finalTop + 'px'; });
+    }, 200); 
+  };  
+
+
+  
