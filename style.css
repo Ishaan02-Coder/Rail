@@ -5,6 +5,9 @@
 .btn{
   display:none;
 }
+#callo,#ca{
+  font-size:40px;
+}
 body, h1, h2, h3, p, ul {
     margin: 0;
     padding: 0;
@@ -959,6 +962,7 @@ nav ul li a{
 }
 .con{
   position: absolute;
+  padding-top:40px ;
 
 }
 
