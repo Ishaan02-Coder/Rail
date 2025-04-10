@@ -79,6 +79,7 @@ function playVideo(index) {
   text.forEach((char, i) => {
     const span = document.createElement("span");
     span.innerText = char;
+    
     span.style.transform = `rotate(${i * (360 / text.length)}deg)`;
     rotatingText.appendChild(span);
   })
@@ -221,12 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('scroll', applyParallax);
 });
-const hamburger = document.getElementById('ham');
-const overlay = document.getElementById('overlay');
 
-hamburger.addEventListener('click', () => {  hamburger.classList.toggle('active');
-  overlay.classList.toggle('active');
-});
 const slides = document.querySelectorAll('.carousel-slide');
   const images = document.querySelectorAll('.carousel-image');
   const totalSlides = slides.length;
@@ -245,17 +241,33 @@ const slides = document.querySelectorAll('.carousel-slide');
           currentSlide = index;
       }
 
-     images.forEach(img => {
-          if (direction === "next") {
-              img.style.transformOrigin = "top left";
-              img.style.transform = "rotate(90deg)";
-          } else {
-              img.style.transformOrigin = "bottom right";
-              img.style.transform = "rotate(-90deg)";
-          }
-          img.style.opacity = "0";
-      });
-
+      images.forEach((img, idx) => {
+       
+        
+            if (currentSlide === 1) {
+                if(idx===0)
+                {
+                }
+                if (idx === 0 || idx === 1) {
+                   img.style.transformOrigin = "calc(100% + 100px) calc(100% + 50px)";
+                    img.style.transform = "rotate(-15deg)";
+                } else if (idx === 2) {
+                    img.style.transformOrigin = "calc(0% - 100px) calc(0% - 50px)";
+                    img.style.transform = "rotate(15deg)";
+                }
+            } else {
+                if (idx === currentSlide||idx===(currentSlide+1)) {
+                    img.style.transformOrigin = "calc(0% - 100px) calc(0% - 50px)";
+                    img.style.transform = "rotate(15deg)"; // anticlockwise for current image
+                } else if (idx === (currentSlide + 2) ) {
+                    img.style.transformOrigin = "calc(100% + 100px) calc(100% + 50px)";
+                    img.style.transform = "rotate(-15deg)";// clockwise for the next image
+                }
+            }
+        
+        img.style.opacity = "0"; // Hide images during the transition
+    });0
+    
       setTimeout(() => {
           document.querySelector('.carousel-container').style.transform = `translateX(${-currentSlide * 100}%)`;
 
@@ -266,7 +278,7 @@ const slides = document.querySelectorAll('.carousel-slide');
               });
               isAnimating = false;
           }, 500);
-      }, 300);
+      }, 700);
   }
 
   document.getElementById('nextBtn').addEventListener('click', () => showSlide(currentSlide + 1, "next"));
@@ -397,4 +409,60 @@ document.getElementById('email-input').addEventListener('input', function () {
   };  
 
 
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById('ham');
+    const overlay = document.getElementById('overlay');
+    const header = document.querySelector("header");
+    const lines = document.querySelectorAll(".line");
+    const bodyChildren = Array.from(document.body.children).filter(
+        el => el !== overlay && el.tagName.toLowerCase() !== 'script'
+    );
+    const footer = document.querySelector('footer');
+
+    hamburger.addEventListener('click', () => {
+        const isActive = overlay.classList.toggle('active');
+        hamburger.classList.toggle('active');
+
+        bodyChildren.forEach(el => {
+            if (isActive) {
+                el.style.display = 'none';
+            } else {
+                el.style.display = '';
+            }
+        });
+
+        if (footer) {
+            footer.style.display = isActive ? 'none' : '';
+        }
+
+        overlay.style.display = 'flex';
+        header.style.display = 'flex';
+
+       header.style.backgroundColor = isActive ? 'black' : '';
+       header.style.color = isActive ? 'white' : '';
+       lines.forEach(line => {
+        line.style.backgroundColor = isActive ? 'white' : '';
+      }
+        
+       )
+   
+    });
+});
+function getOverflowStatus() {
+    const docEl = document.documentElement;
+  
+    return {
+      horizontal: docEl.scrollWidth > docEl.clientWidth,
+      overflowing:  docEl.scrollWidth > docEl.clientWidth
+    };
+  }
+  
+  const overflow = getOverflowStatus();
+  
+  if (overflow.overflowing) {
+    console.log("Page is overflowing.");
+     if (overflow.horizontal) console.log("Horizontal overflow detected.");
+  } else {
+    console.log("No overflow detected.");
+  }
   
